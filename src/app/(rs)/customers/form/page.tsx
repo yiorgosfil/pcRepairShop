@@ -1,6 +1,7 @@
 import { getCustomer } from "@/lib/queries/getCustomer";
 import { BackButton } from '@/components/BackButton'
 import * as Sentry from '@sentry/nextjs'
+import CustomerForm from "./CustomerForm";
 
 // Custom type 
 type SearchParams = Promise<{ [key: string]: string | undefined }>
@@ -21,9 +22,9 @@ export default async function CustomerFormPage({ searchParams }: { searchParams:
         )
       }
       console.log(customer)
-      // Customer form component
+      return <CustomerForm customer={customer} />
     } else {
-      // New customer form component
+      return <CustomerForm />
     }
   } catch (error) {
     if (error instanceof Error) {
