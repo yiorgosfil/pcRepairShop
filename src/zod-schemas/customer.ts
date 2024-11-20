@@ -16,7 +16,7 @@ export const insertCustomerSchema = createInsertSchema(customers, {
   province: (schema) => schema.province.length(2, "Province must be 2 characters"),
   email: (schema) => schema.email.email("Invalid email address"),
   zip: (schema) => schema.zip.regex(/^\d{4}[A-Z]{2}$/, "Invalid ZIP code"),
-  phone: (schema) => schema.phone.regex(/^(0[1-9]X{7}|06[1-58]X{7})$/, "Invalid phone number"),
+  phone: (schema) => schema.phone.regex(/^\d+$/, "Invalid phone number"),
 })
 
 export const selectCustomerSchema = createSelectSchema(customers)
