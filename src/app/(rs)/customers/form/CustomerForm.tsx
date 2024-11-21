@@ -6,12 +6,12 @@ import { Form } from "@/components/ui/form"
 import { Button } from '@/components/ui/button'
 import { InputWithLabel } from "@/components/inputs/InputWithLabel"
 import { SelectWithLabel } from "@/components/inputs/SelectWithLabel"
+import { TextAreaWithLabel } from "@/components/inputs/TextAreaWithLabel"
 import {
   insertCustomerSchema,
   type insertCustomerSchemaType,
   type selectCustomerSchemaType
 } from "@/zod-schemas/customer"
-import { TextAreaWithLabel } from "@/components/inputs/TextAreaWithLabel"
 import { provincesArray } from "@/constants/ProvincesArray"
 
 type Props = {
@@ -106,7 +106,7 @@ export default function CustomerForm({ customer }: Props) {
                   variant='default'
                   title='Opslaan'
                 >
-                  Save
+                  Opslaan
                 </Button>
                 <Button
                   type='button'
@@ -114,7 +114,7 @@ export default function CustomerForm({ customer }: Props) {
                   title='Resetten'
                   onClick={() => form.reset(defaultValues)}
                 >
-                  Reset
+                  Resetten
                 </Button>
               </div>
             </div>
