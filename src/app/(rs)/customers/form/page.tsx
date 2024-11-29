@@ -3,8 +3,19 @@ import { BackButton } from '@/components/BackButton'
 import * as Sentry from '@sentry/nextjs'
 import CustomerForm from "./CustomerForm";
 
-// Custom type 
 type SearchParams = Promise<{ [key: string]: string | undefined }>
+
+export async function generateMetadata({
+  searchParams
+}: {
+  searchParams: SearchParams
+}) {
+  const { customerId } = await searchParams
+  if (!customerId) return { title: 'Nieuwe Klant' }
+  return {
+    title: `Klant Bewerken #${customerId}`
+  }
+}
 
 export default async function CustomerFormPage({ searchParams }: { searchParams: SearchParams }) {
   try {
