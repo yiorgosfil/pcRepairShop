@@ -17,7 +17,7 @@ function MessageBox({
 }) {
   return (
     <div className={`bg-accent px-4 py-2 my-2 rounded-lg ${type === 'error' ? 'text-red-500' : ''}`}>
-      {type === 'success' ? 'Succes' : 'Fout'} {content}
+      {type === 'success' ? 'Succes:' : 'Fout:'} {content}
     </div>
   )
 }
@@ -28,7 +28,7 @@ export function DisplayServerActionResponse({ result }: Props) {
   return (
     <div>
       {data?.message && (
-        <MessageBox type='success' content={`Succes: ${data?.message}`} />
+        <MessageBox type='success' content={`${data?.message}`} />
       )}
       {serverError && (
         <MessageBox type='error' content={serverError} />
