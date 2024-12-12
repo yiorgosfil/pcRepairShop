@@ -15,7 +15,7 @@ export default function SearchButton() {
     >
       {status.pending ? (
         <LoaderCircle className='animate-spin' />
-      ) : 'Search'
+      ) : 'Zoeken'
       }
     </Button>
   )

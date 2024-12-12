@@ -11,7 +11,7 @@ export default function CustomerSearch() {
       <Input
         name='searchText'
         type='text'
-        placeholder='Search Customers'
+        placeholder='Klant zoeken'
         className='w-full'
       />
       <SearchButton />

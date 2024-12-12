@@ -4,7 +4,7 @@ import { getCustomerSearchResults } from '@/lib/queries/getCustomerSearchResults
 import * as Sentry from '@sentry/nextjs'
 
 export const metadata = {
-  title: "Customer Search"
+  title: "Klant Zoeken"
 }
 
 export default async function Customers({
@@ -16,7 +16,7 @@ export default async function Customers({
   if (!searchText) return <CustomerSearch />
 
   const span = Sentry.startInactiveSpan({
-    name: 'getCustomerSearchResults-1'
+    name: 'getCustomerSearchResults-2'
   })
   const results = await getCustomerSearchResults(searchText)
   span.end()
@@ -26,7 +26,7 @@ export default async function Customers({
       <CustomerSearch />
       {results.length
         ? <CustomerTable data={results} />
-        : <p className='mt-4'>No results found</p>
+        : <p className='mt-4'>Geen resultaten gevonden</p>
       }
     </>
   )
