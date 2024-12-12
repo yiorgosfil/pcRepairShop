@@ -31,9 +31,9 @@ export default async function TicketFormPage({ searchParams }: { searchParams: S
       return (
         <>
           <h2 className="text-2xl mb-2">
-            Ticket ID or Customer ID required to load the ticket form.
+            Ticket-ID of Klant-ID is vereist om het ticketformulier te laden.
           </h2>
-          <BackButton title="Go Back" variant="default" />
+          <BackButton title="Terug" variant="default" />
         </>
       )
     }
