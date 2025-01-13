@@ -8,8 +8,8 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <div className="px-2 w-full">
-      <div className="mx-auto py-4 flex flex-col justify-center items-center gap-4">
+    <div className="px-2 w-full h-dvh">
+      <div className="mx-auto py-4 h-full flex flex-col justify-center items-center gap-4">
         <h2 className="text-2xl">Page Not Found</h2>
         <Image
           className="m-0 rounded-xl"
@@ -21,7 +21,7 @@ export default function NotFound() {
           title="Page Not Found"
         />
         {/* <NavButton href='/home' label="Homepage"> */}
-        <Link href="/home">Go back home</Link>
+        <Link href="/tickets" className='border-white/80 border-2 p-2 rounded'>Go back home</Link>
         {/* </NavButton> */}
       </div>
     </div>

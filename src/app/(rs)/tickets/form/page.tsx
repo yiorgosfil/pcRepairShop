@@ -53,18 +53,18 @@ export default async function TicketFormPage({ searchParams }: { searchParams: S
         return (
           <>
             <h2 className="text-2xl mb-2">
-              Customer ID #{customerId} not found.
+              Klant-ID #{customerId} niet gevonden.
             </h2>
-            <BackButton title="Go Back" variant="default" />
+            <BackButton title="Ga Terug" variant="default" />
           </>
         )
       }
       if (!customer.active) {
         <>
           <h2 className="text-2xl mb-2">
-            Customer ID #{customerId} is not active.
+            Klant-ID #{customerId} is niet actief.
           </h2>
-          <BackButton title="Go Back" variant="default" />
+          <BackButton title="Ga Terug" variant="default" />
         </>
       }
       // Return ticket form
@@ -77,7 +77,7 @@ export default async function TicketFormPage({ searchParams }: { searchParams: S
           { id: user.email!, description: user.email! }
         )) : []
 
-        return <TicketForm customer={customer} techs={techs} />
+        return <TicketForm customer={customer} techs={techs} isManager={isManager} />
       } else {
         return <TicketForm customer={customer} />
       }
@@ -91,9 +91,9 @@ export default async function TicketFormPage({ searchParams }: { searchParams: S
         return (
           <>
             <h2 className="text-2xl mb-2">
-              Ticket ID #{ticketId} not found.
+              Ticket-ID #{ticketId} niet gevonden.
             </h2>
-            <BackButton title="Go Back" variant="default" />
+            <BackButton title="Ga Terug" variant="default" />
           </>
         )
       }
@@ -109,7 +109,7 @@ export default async function TicketFormPage({ searchParams }: { searchParams: S
           { id: user.email!, description: user.email! }
         )) : []
 
-        return <TicketForm customer={customer} ticket={ticket} techs={techs} />
+        return <TicketForm customer={customer} ticket={ticket} techs={techs} isManager={isManager} />
       } else {
         const isEditable = user.email?.toLowerCase() === ticket.tech.toLowerCase()
         return <TicketForm customer={customer} ticket={ticket} isEditable={isEditable} />
