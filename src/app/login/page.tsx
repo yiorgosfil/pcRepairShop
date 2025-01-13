@@ -8,7 +8,9 @@ export default function LoginPage() {
       <Button asChild>
         <LoginLink>Aanmelden</LoginLink>
       </Button>
-      <p className="text-xs">Ben je een bezoeker die de demo wil uitproberen? Klik op aanmelden en voer je e-mail in om een uitnodigingscode te ontvangen.</p>
-    </main>
+      <div className="max-w-96">
+        <p className="text-sm text-wrap">Ben je een bezoeker die de demo wil uitproberen? Klik op aanmelden en voer je e-mail in om een uitnodigingscode te ontvangen.</p>
+      </div>
+    </main >
   )
 }
