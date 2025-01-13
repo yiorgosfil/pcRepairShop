@@ -13,6 +13,7 @@ export default function CustomerSearch() {
         type='text'
         placeholder='Klant zoeken'
         className='w-full'
+        autoFocus
       />
       <SearchButton />
     </Form>
