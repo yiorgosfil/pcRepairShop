@@ -3,7 +3,7 @@ import { NextRequest } from "next/server"
 
 export default withAuth(
   async function middleware(request: NextRequest): Promise<void> {
-    console.log(request)
+    // console.log(request)
   }, {
   isReturnToHomepage: true
 }

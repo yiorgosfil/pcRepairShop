@@ -16,7 +16,6 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { useRouter } from "next/navigation"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -35,9 +34,11 @@ type Props =
   }
 
 export default function CustomerTable({ data }: Props) {
-  const router = useRouter()
+  type DutchCustomerFields = Pick<selectCustomerSchemaType,
+    'firstName' | 'lastName' | 'email' | 'phone' | 'city' | 'zip'
+  >
 
-  const columnHeadersArray: Array<keyof selectCustomerSchemaType> = [
+  const columnHeadersArray: (keyof DutchCustomerFields)[] = [
     'firstName',
     'lastName',
     'email',
@@ -45,6 +46,7 @@ export default function CustomerTable({ data }: Props) {
     'city',
     'zip',
   ]
+
 
   const columnHelper = createColumnHelper<selectCustomerSchemaType>()
   const ActionsCell = ({ row }: CellContext<selectCustomerSchemaType, unknown>) => {
@@ -85,24 +87,21 @@ export default function CustomerTable({ data }: Props) {
 
   ActionsCell.displayName = 'ActionsCell'
 
+  const dutchHeaders: Record<keyof DutchCustomerFields, string> = {
+    'firstName': 'Voornaam',
+    'lastName': 'Achternaam',
+    'email': 'E-mail',
+    'phone': 'Telefoon',
+    'city': 'Stad',
+    'zip': 'Postcode'
+  }
   const columns = [
     columnHelper.display({
       id: 'actions',
       header: () => <TableOfContents />,
       cell: ActionsCell,
     }),
-
     ...columnHeadersArray.map(columnName => {
-
-      const dutchHeaders: Record<keyof selectCustomerSchemaType, string> = {
-        'firstName': 'Voornaam',
-        'lastName': 'Achternaam',
-        'email': 'E-mail',
-        'phone': 'Telefoon',
-        'city': 'Stad',
-        'zip': 'Postcode'
-      }
-
       return columnHelper.accessor(columnName, {
         id: columnName,
         header: dutchHeaders[columnName]
